@@ -1,11 +1,9 @@
 # automate
-## symlink
-## ansible?# automate
-## symlink
-## ansible?
+- symlink
+- ansible?
 
 # vim
-## vim.simple review
-## vim plugin
+- vim.simple review
+- vim plugin
 
 # Other dotfiles
