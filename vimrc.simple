@@ -1,0 +1,62 @@
+set encoding=utf-8
+set fileencoding=utf-8
+set number
+
+filetype on
+set wildmenu
+
+set number
+set title
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+syntax on
+
+set laststatus=2
+" relative path
+set statusline=%f
+" absolute path
+set statusline+=%F
+" file type
+set statusline+=%y
+" file edit +, read only: -
+set statusline+=%m
+" view readonly to [RO]
+" set statusline+=%r
+" display [HELP] for help
+set statusline+=%h
+" Left and right division
+set statusline+=%=
+" cursor positions
+set statusline+=[%l,%c,%p/%L]
+" display fileformat
+set statusline+=[fmt=%{&ff}]
+" fileencoding (file character code) setting value, if not, encoding (Vim character code) value
+set statusline+=[enc=%{&fileencoding!=''?&fileencoding:&encoding}]
+
+set cursorline
+set cursorcolumn
+set whichwrap=b,s,h,l,<,>,~,[,]
+set virtualedit=onemore
+set ruler
+
+set autoread
+set confirm
+set nobackup
+set noswapfile
+
+set showmatch
+set completeopt=menuone,noinsert
+
+set autoindent
+set smartindent
+" smartindent or cindent
+" set cindent
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+set hlsearch
+set wrapscan
+set ignorecase
+set smartcase
+set incsearch
