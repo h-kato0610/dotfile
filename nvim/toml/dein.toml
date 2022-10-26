@@ -1,0 +1,17 @@
+#################### explorer #################### 
+
+# -------- view filetree -------
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+depends = ['ryanoasis/vim-devicons']
+on_event='NERDTreeToggle'
+
+# file icon for filetree
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_source='nerdtree'
+
+# ---------- toml ---------- 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
