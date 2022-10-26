@@ -62,9 +62,7 @@ set noswapfile
 autocmd BufWritePost  ~/.config/nvim/init.vim  so ~/.config/nvim/init.vim
 
 " view indent
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-
+set list set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -92,6 +90,17 @@ set ignorecase
 set smartcase
 " Before completing the search string, it will move to the location that matches the string being entered.
 set incsearch
+
+" put esc of no hlsearch
+cat << "_EOF_" >> ~/.vimrc
+nnoremap <ESC><ESC> :nohl<CR>
+_EOF_
+
+" move to view line
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
 
 " Ctrl-nでNERDTreeを開く
 map <C-n> :NERDTreeToggle<CR>
