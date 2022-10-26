@@ -11,7 +11,61 @@ on_event='NERDTreeToggle'
 repo = 'ryanoasis/vim-devicons'
 on_source='nerdtree'
 
-# ---------- toml ---------- 
+# ---------- toml --------------
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+# --------- Language ------------
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['context_filetype.vim']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+  nnoremap [coc] <Nop>
+  nmap <space>c [coc]
+  nmap <silent> [coc]f <Plug>(coc-format)
+  nmap <silent> [coc]<space> :<C-u>CocList<cr>
+  nmap <silent> [coc]rn <Plug>(coc-rename)
+  nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
+  nmap <silent> [coc]d <Plug>(coc-definition)
+  nmap <silent> [coc]rf <Plug>(coc-references)
+'''
+
+# --------------- rust -----------------
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+
+# --------------- nim --------------------
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+" TABで補完
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+'''
+
+[[plugins]]
+repo = 'alaviss/nim.nvim'
+on_ft = ['nim', 'nimble']
+hook_add = '''
+au User asyncomplete_setup call asyncomplete#register_source({
+  \ 'name': 'nim',
+  \ 'whitelist': ['nim'],
+  \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
+  \ })
+'''
+
+# --------------- go ---------------------
+
