@@ -1,4 +1,18 @@
+defutf8 on
+defencoding utf8
+defencoding utf8 utf8
+
+startup_message off
+vbell off
+
+defbce on
+term xterm-256color
+
 bind c screen1
 bind ^c screen1
 bind 0 select 10
 screen 1
+
+hardstatus alwayslastline "%{= cd} %-w%{= dd} %n %t* %{-}%+w %= LoadAVG [%l] "
+
+shell $SHELL
