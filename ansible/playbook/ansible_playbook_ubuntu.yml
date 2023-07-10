@@ -1,0 +1,25 @@
+#　T.B.D 本番環境なら、VM（QEMU、KVM）やVSCodeも含むなども行旅
+## ZSH Custom, Neovim Build and Custom, Neovim build and Custom and nim(?) path, git key
+
+---
+- hosts: localhost
+  tasks:
+    - name: Install a packages
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: latest
+      vars:
+        packages:
+          - vim
+          - git
+          - zsh
+          - curl
+          - rust-all
+          - python3
+      become: true
+
+    - name: Set zsh as default shell
+      command: chsh -s '/bin/zsh'
+
+    - name: Install nim Language
+      command: curl https://nim-lang.org/choosenim/init.-sSf|sh
